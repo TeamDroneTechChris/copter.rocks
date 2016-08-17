@@ -141,6 +141,7 @@ float yaw_dot=0.0;
 uint32_t timePrev = 0;
 
 float YPR[3];
+float pqr[3];
 float mag[3];
 
 #if defined DEBUG_SPECIFIC || defined DEBUG_CONTINOUS
@@ -170,12 +171,14 @@ extern uint32_t timeout_count;
 void AttControl_TIMER_ISR(void)
 {
 	GetAngles(YPR,&yoffset);
+	GetRates(pqr); // in rad!
 	GetRCData(&powerD, &yawD_dot, &pitchD, &rollD);
 
 	uint32_t Now = millis();
 	float dt = ((Now - timePrev)/1000.0f);
 	timePrev = Now;
 
+	/* not sure about this I would recommend a simple lowpass filter for pqr */
 	// filter
 	float delta_yaw = YPR[0]-yaw;
 	if (delta_yaw >= 180.0)
