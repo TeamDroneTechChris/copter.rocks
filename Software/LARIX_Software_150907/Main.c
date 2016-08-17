@@ -171,7 +171,7 @@ extern uint32_t timeout_count;
 void AttControl_TIMER_ISR(void)
 {
 	GetAngles(YPR,&yoffset);
-	GetRates(pqr); // in rad!
+	GetRates(pqr);// in rad!
 	GetRCData(&powerD, &yawD_dot, &pitchD, &rollD);
 
 	uint32_t Now = millis();
