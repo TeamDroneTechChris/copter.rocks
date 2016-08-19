@@ -163,6 +163,9 @@ void MPU9150_InitAK8975A(float * destination);
 
 void GetAngles(float* angles, float* yoffset);
 void GetMagData(float* pt);
+void GetAccel(float* xyz);
+void GetRates(float* pqr);
+	
 uint16_t GetSensorCount();
 
 #endif /* MPU9150_H_ */

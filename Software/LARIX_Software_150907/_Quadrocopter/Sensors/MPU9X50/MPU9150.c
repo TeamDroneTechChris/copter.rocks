@@ -398,6 +398,20 @@ void GetMagData(float* pt)
 	pt[2] = mag[2];
 }
 
+void GetRates(float* pqr)
+{
+	pqr[0] = gyro[0];
+	pqr[1] = gyro[1];
+	pqr[2] = gyro[2];
+}
+
+void GetAccel(float* xyz)
+{
+	xyz[0] = acc[0];
+	xyz[1] = acc[1];
+	xyz[2] = acc[2];
+}
+
 void MPU_EXT_INT_ISR(void)
 {
 	uint32_t status;
