@@ -143,6 +143,7 @@ uint32_t timePrev = 0;
 float YPR[3];
 float pqr[3];
 float mag[3];
+float acc[3];
 
 #if defined DEBUG_SPECIFIC || defined DEBUG_CONTINOUS
 	int8_t USB_Rx_Buffer[100] = { 0 };
@@ -172,6 +173,7 @@ void AttControl_TIMER_ISR(void)
 {
 	GetAngles(YPR,&yoffset);
 	GetRates(pqr);// in rad!
+	GetAccel(acc);// in m/s^2!
 	GetRCData(&powerD, &yawD_dot, &pitchD, &rollD);
 
 	uint32_t Now = millis();
