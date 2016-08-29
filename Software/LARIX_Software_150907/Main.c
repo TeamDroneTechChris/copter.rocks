@@ -177,6 +177,7 @@ void AttControl_TIMER_ISR(void)
 	GetRCData(&powerD, &yawD_dot, &pitchD, &rollD);
 
 	uint32_t Now = millis();
+	uint32_t Now_new = millis();
 	float dt = ((Now - timePrev)/1000.0f);
 	timePrev = Now;
 
